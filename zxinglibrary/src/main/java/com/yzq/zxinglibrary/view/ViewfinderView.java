@@ -261,8 +261,11 @@ public final class ViewfinderView extends View {
         canvas.drawRect(0, frame.bottom + 1, width, height, paint);
 
         paint.setColor(textColor);
-        paint.setTextSize(45);
-        canvas.drawText(config.getScanDescText(),frame.left+80, frame.bottom+80,paint);
+        paint.setTextSize(30);
+        String text = config.getScanDescText();
+        // 文字宽
+        float textWidth = paint.measureText(text);
+        canvas.drawText(text, (width-textWidth)/2, frame.bottom+60, paint);
     }
 
 
